@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
-using System.Collections.Generic;
-    
+
 namespace BreakOut
 {
     public partial class Form1 : Form
     {
         private int paddlePos = 0;
         private int ballSpeedX = 0, ballSpeedY = 0;
-        List<Label> Blocks = new List<Label>();
+        System.Collections.Generic.List<Label> Blocks = new System.Collections.Generic.List<Label>();
         public Form1()
         {
             InitializeComponent();
@@ -20,16 +18,17 @@ namespace BreakOut
             {
                 Title.Text = string.Empty;
                 double a = new Random().NextDouble() * 2.8 + 0.1;
-                ballSpeedX = (int) (Math.Cos(a) * 16);
-                ballSpeedY = (int) -(Math.Sin(a) * 16);
+                ballSpeedX = (int) (Math.Cos(a) * 14);
+                ballSpeedY = (int) -(Math.Sin(a) * 14);
                 Ball.Top = 300;
                 Ball.Left = 380;
+                paddlePos = 0;
                 for (int x = 0; x < 8; x++)
                 {
                     for (int y = 0; y < 5; y++)
                     {
                         int startx = 40, starty = 20;
-                        Label block = new Label() { Size = new Size(80, 20), BackColor = Color.Cyan, Left = startx + 90 * x, Top = starty + 40 * y};
+                        Label block = new Label() { Size = new System.Drawing.Size(80, 20), BackColor = System.Drawing.Color.Cyan, Left = startx + 90 * x, Top = starty + 40 * y};
                         Blocks.Add(block);
                         Controls.Add(block);
                     }
@@ -48,7 +47,7 @@ namespace BreakOut
             {
                 paddlePos++;
             }
-            Paddle.Location = new Point(posHolder[paddlePos + 3], 360);
+            Paddle.Location = new System.Drawing.Point(posHolder[paddlePos + 3], 360);
         }
         int[] posHolder = new int[] { 0, 130, 230, 330, 430, 530, 660};
         private void timer1_Tick(object sender, EventArgs e)
@@ -73,18 +72,15 @@ namespace BreakOut
                 Blocks.RemoveRange(0, Blocks.Count);
                 timer1.Stop();
             }
-
             if (Ball.Left + 16 > Paddle.Left && Ball.Left < Paddle.Left + 140 && Ball.Top + 32 > 360 && Ball.Top + 32 < 375)
-                ballSpeedY= -ballSpeedY;
+                ballSpeedY = -ballSpeedY;
             foreach (var block in Blocks)
             {
-                bool intersects = block.Bounds.IntersectsWith(Ball.Bounds);
-                //下
-                if (intersects)
+                if (block.Bounds.IntersectsWith(Ball.Bounds))
                 {
                     block.Name = "R";//コントロールから削除済タグをつける
                     if (Ball.Left + 32 > block.Left && Ball.Left + 32 < block.Left + 80)
-                        ballSpeedY= -ballSpeedY;
+                        ballSpeedY = -ballSpeedY;
                     else
                         ballSpeedX = -ballSpeedX;
                     Controls.Remove(block);
