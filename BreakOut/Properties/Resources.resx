@@ -117,14 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="circle" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABg2lDQ1BJQ0MgcHJvZmlsZQAAKM+VkTlI
+        A0EYhT8TRfHAwhQiFgtGKwVREUuJoggKkkTwKtzdmChkN2E3wcZSsA1YeDRehY21tha2giB4gNjaWCna
+        iKz/bIQEIYIDw3y8mfeYeQOBg7RpudW9YNk5Jzoe0Wbn5rXaZ4I000AHHbrpZqdiY3Eqjo9bqtR606Oy
+        +N9oSiy7JlRpwsNm1skJLwkPruWyineEQ+aKnhA+Fe525ILC90o3ivyiOOVzQGWGnHh0RDgkrKXK2Chj
+        c8WxhAeEwwnLlvzAbJETitcVW+m8+XNP9cLGZXsmpnSZ7YwzwRTTaBjkWSVNjh5ZbVFcorIfqeBv8/3T
+        4jLEtYopjlEyWOi+H/UHv7t1k/19xaTGCNQ8ed5bJ9RuwVfB8z4PPe/rCIKPcGGX/JkDGHoXvVDSwvvQ
+        vAFnlyXN2IbzTWh9yOqO7ktBmYFkEl5P5JvmoOUa6heKvf3sc3wHcelq8gp296ArJdmLFd5dV97bn2f8
+        /oh8A4kAcrCSrJAaAAAACXBIWXMAAC4iAAAuIgGq4t2SAAAAB3RJTUUH5wMPCyguVYinmAAAABl0RVh0
+        Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAACQSURBVFhH7dQxDoMwDAXQ3P/SrRCvYgBarMRO
+        h7wNx/b3RIt6faFlPPtDjPaxq4tVceaHsPIZMylE3NOXStQ1PalEnXkvIfKgXkr0Tq2U6DnhH+uA6Qds
+        1gHrgHXA1AOm/wf+44CN71Kid2qlRB/US4g8855K1DU9qUTd05dCxDNmhrAyznwXq/rYFWL0h9bepQjv
+        ueAiQEIAAAAASUVORK5CYII=
+</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Binary__number" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Binary__number.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="circle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_0Nonenull__カスタム_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\0Nonenull (カスタム).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

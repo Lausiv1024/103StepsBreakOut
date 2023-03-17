@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Title = new System.Windows.Forms.Label();
-            this.Bouncer = new System.Windows.Forms.Label();
-            this.Ball1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.Ball1)).BeginInit();
+            this.Paddle = new System.Windows.Forms.Label();
+            this.Ball = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -50,32 +50,31 @@
             // 
             // Bouncer
             // 
-            this.Bouncer.BackColor = System.Drawing.Color.Yellow;
-            resources.ApplyResources(this.Bouncer, "Bouncer");
-            this.Bouncer.Name = "Bouncer";
+            this.Paddle.BackColor = System.Drawing.Color.Yellow;
+            resources.ApplyResources(this.Paddle, "Bouncer");
+            this.Paddle.Name = "Bouncer";
             // 
             // Ball1
             // 
-            this.Ball1.Image = global::BreakOut.Properties.Resources.circle;
-            resources.ApplyResources(this.Ball1, "Ball1");
-            this.Ball1.Name = "Ball1";
-            this.Ball1.TabStop = false;
+            this.Ball.Image = global::BreakOut.Properties.Resources.circle1;
+            resources.ApplyResources(this.Ball, "Ball1");
+            this.Ball.Name = "Ball1";
+            this.Ball.TabStop = false;
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Navy;
-            this.Controls.Add(this.Ball1);
-            this.Controls.Add(this.Bouncer);
+            this.Controls.Add(this.Ball);
+            this.Controls.Add(this.Paddle);
             this.Controls.Add(this.Title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.Ball1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ball)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -85,8 +84,8 @@
 
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label Title;
-        private System.Windows.Forms.Label Bouncer;
-        private System.Windows.Forms.PictureBox Ball1;
+        private System.Windows.Forms.Label Paddle;
+        private System.Windows.Forms.PictureBox Ball;
     }
 }
 

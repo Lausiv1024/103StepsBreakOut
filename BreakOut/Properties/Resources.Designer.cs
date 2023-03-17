@@ -63,29 +63,19 @@ namespace BreakOut.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
-        internal static System.Drawing.Bitmap _0Nonenull__カスタム_ {
-            get {
-                object obj = ResourceManager.GetObject("_0Nonenull__カスタム_", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static System.Drawing.Bitmap Binary__number {
-            get {
-                object obj = ResourceManager.GetObject("Binary__number", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
-        /// </summary>
         internal static System.Drawing.Bitmap circle {
             get {
                 object obj = ResourceManager.GetObject("circle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap circle1 {
+            get {
+                object obj = ResourceManager.GetObject("circle1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

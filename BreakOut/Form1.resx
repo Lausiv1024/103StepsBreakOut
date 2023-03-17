@@ -187,7 +187,7 @@
     <value>1</value>
   </data>
   <data name="Ball1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>381, 307</value>
+    <value>380, 300</value>
   </data>
   <data name="Ball1.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 32</value>

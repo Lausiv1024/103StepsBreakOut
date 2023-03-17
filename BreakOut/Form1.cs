@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-
+using System.Collections.Generic;
+    
 namespace BreakOut
 {
     public partial class Form1 : Form
     {
-        private int bouncerPos = 0;
-        private int ballPosX = 0, ballPosY = 0, ballSpeedX = 0, ballSpeedY = 0;
+        private int paddlePos = 0;
+        private int ballSpeedX = 0, ballSpeedY = 0;
+        List<Label> Blocks = new List<Label>();
         public Form1()
         {
             InitializeComponent();
@@ -17,44 +19,78 @@ namespace BreakOut
             if (!timer1.Enabled && e.KeyCode == Keys.Space)//ゲームが開始しているかはタイマーの状態で判断する
             {
                 Title.Text = string.Empty;
-                ballPosX = Ball1.Left; 
-                ballPosY = Ball1.Top;
-                double a = new Random().NextDouble() * 5.8 + 1;
-                ballSpeedX =(int) (Math.Sin(a) * 10);
-                ballSpeedY=(int) (Math.Sin(a)/ 10);
-
-
+                double a = new Random().NextDouble() * 2.8 + 0.1;
+                ballSpeedX = (int) (Math.Cos(a) * 16);
+                ballSpeedY = (int) -(Math.Sin(a) * 16);
+                Ball.Top = 300;
+                Ball.Left = 380;
+                for (int x = 0; x < 8; x++)
+                {
+                    for (int y = 0; y < 5; y++)
+                    {
+                        int startx = 40, starty = 20;
+                        Label block = new Label() { Size = new Size(80, 20), BackColor = Color.Cyan, Left = startx + 90 * x, Top = starty + 40 * y};
+                        Blocks.Add(block);
+                        Controls.Add(block);
+                    }
+                }
                 timer1.Start();
             }
             if (e.KeyCode == Keys.Escape)
                 Application.Exit();
             if (!timer1.Enabled) 
                 return;
-            if (e.KeyCode == Keys.Left && (Math.Abs(bouncerPos) < 3 || bouncerPos == 3))
+            if (e.KeyCode == Keys.Left && (Math.Abs(paddlePos) < 3 || paddlePos == 3))
             {
-                bouncerPos--;
+                paddlePos--;
             }
-            if (e.KeyCode == Keys.Right && (Math.Abs(bouncerPos) < 3 || bouncerPos == -3))
+            if (e.KeyCode == Keys.Right && (Math.Abs(paddlePos) < 3 || paddlePos == -3))
             {
-                bouncerPos++;
+                paddlePos++;
             }
-
-            Bouncer.Location = new Point(posHolder[bouncerPos + 3], 360);
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_KeyUp(object sender, KeyEventArgs e)
-        {
-
+            Paddle.Location = new Point(posHolder[paddlePos + 3], 360);
         }
         int[] posHolder = new int[] { 0, 130, 230, 330, 430, 530, 660};
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Ball.Left += ballSpeedX;
+            Ball.Top += ballSpeedY;
+            if (Ball.Left < 0 || Ball.Left > Size.Width - 32)
+                ballSpeedX = -ballSpeedX;
+            if (Ball.Top < 0) 
+                ballSpeedY = -ballSpeedY;
+            if (Blocks.Count == 0)
+            {
+                Title.Text = "Game Clear!!";
+                timer1.Stop();
+            }
+            if (Ball.Top > Size.Height - 32){
+                Title.Text = "Game Over!!\nPress Space to restart.";
+                for (int i = 0; i < Blocks.Count; i++)
+                {
+                    Controls.Remove(Blocks[i]);
+                }
+                Blocks.RemoveRange(0, Blocks.Count);
+                timer1.Stop();
+            }
 
+            if (Ball.Left + 16 > Paddle.Left && Ball.Left < Paddle.Left + 140 && Ball.Top + 32 > 360 && Ball.Top + 32 < 375)
+                ballSpeedY= -ballSpeedY;
+            foreach (var block in Blocks)
+            {
+                bool intersects = block.Bounds.IntersectsWith(Ball.Bounds);
+                //下
+                if (intersects)
+                {
+                    block.Name = "R";//コントロールから削除済タグをつける
+                    if (Ball.Left + 32 > block.Left && Ball.Left + 32 < block.Left + 80)
+                        ballSpeedY= -ballSpeedY;
+                    else
+                        ballSpeedX = -ballSpeedX;
+                    Controls.Remove(block);
+                }
+            }
+            Blocks.RemoveAll(l => l.Name == "R");
         }
     }
 }
