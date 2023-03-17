@@ -55,9 +55,13 @@ namespace BreakOut
             Ball.Left += ballSpeedX;
             Ball.Top += ballSpeedY;
             if (Ball.Left < 0 || Ball.Left > Size.Width - 32)
+            {
                 ballSpeedX = -ballSpeedX;
-            if (Ball.Top < 0) 
+            }
+            if (Ball.Top < 0)
+            {
                 ballSpeedY = -ballSpeedY;
+            }
             if (Blocks.Count == 0)
             {
                 Title.Text = "Game Clear!!";
@@ -72,7 +76,7 @@ namespace BreakOut
                 Blocks.RemoveRange(0, Blocks.Count);
                 timer1.Stop();
             }
-            if (Ball.Left + 16 > Paddle.Left && Ball.Left < Paddle.Left + 140 && Ball.Top + 32 > 360 && Ball.Top + 32 < 375)
+            if (Ball.Left > Paddle.Left && Ball.Left < Paddle.Left + 140 && Ball.Top + 32 > 360 && Ball.Top + 32 < 375)
                 ballSpeedY = -ballSpeedY;
             foreach (var block in Blocks)
             {
@@ -80,9 +84,12 @@ namespace BreakOut
                 {
                     block.Name = "R";//コントロールから削除済タグをつける
                     if (Ball.Left + 32 > block.Left && Ball.Left + 32 < block.Left + 80)
+                    {
                         ballSpeedY = -ballSpeedY;
-                    else
+                    } else
+                    {
                         ballSpeedX = -ballSpeedX;
+                    }
                     Controls.Remove(block);
                 }
             }

@@ -1,4 +1,4 @@
-# 100StepsBreakOut
+# 103StepsBreakOut
 
 ## このゲームについて
 [Binary number](https://misskey.io/@Binary_number_)氏による[140StepsShooting](https://github.com/binary-number/140StepsShooting)に触発され[Misskey.io](https://misskey.io/@lausiv1024)でのリノート数x1ステップ以内で作るという[企画](https://misskey.io/notes/9c5dzhpq57)を行いそれで作りました。
